@@ -5,7 +5,7 @@ $ python --version
 Python 3.5.5
 ```
 
-### Tech
+### Flask Library
 * Flask-RESTPlus
 
 ### Steps to setup
