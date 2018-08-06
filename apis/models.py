@@ -6,12 +6,14 @@ import tensorflow as tf
 
 
 def init():
-    # create global variables, so that you can load this variable inside api/module file
-    global test_var
+    """
+    create global variables, so that you can load this variable inside api/module file
+    """
+    global model_data
     global graph
 
-    # Load models here into global variables
-    test_var = "Load model here"
+    # Load models here into global variables once, so that we dont have to load them again
+    model_data = "Load model here"
 
     graph = tf.get_default_graph()
 
