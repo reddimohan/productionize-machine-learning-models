@@ -46,9 +46,9 @@ class ClassName(Resource):
 
         image_obj = request.files['image']
 
-        self.predict(image_obj)
+        prediction = self.predict(image_obj)
 
-        return { 'status': 'success', 'prediction': 'work-in-progress' }, 200
+        return { 'status': 'success', 'prediction': prediction[0] }, 200
 
 
     def predict(self, image_obj):
@@ -74,13 +74,13 @@ class ClassName(Resource):
             batch_size=batch_size,
             shuffle=False
         )
-        print(nb_samples, batch_size)
-        print(np.ceil(nb_samples/batch_size))
-        predict = self.model.predict_generator(test_generator, steps=np.ceil(nb_samples/batch_size))
-        # predict = self.model.predict_generator(test_generator)
-        df['category'] = np.argmax(predict, axis=-1)
-        df["category"] = df["category"].replace({0: 'cat', 1: 'dog'})
-        print(df)
+        with self.graph.as_default():
+            predict = self.model.predict_generator(test_generator, steps=np.ceil(nb_samples/batch_size))
+            df['category'] = np.argmax(predict, axis=-1)
+            df["category"] = df["category"].replace({0: 'cat', 1: 'dog'})
+
+        print(df['category'].values)
+        return df['category'].values
 
     def _init_models(self):
         """
