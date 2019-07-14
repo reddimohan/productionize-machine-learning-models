@@ -1,6 +1,6 @@
 # All your configuratin variables go here
 
 
-DOC_UPLOAD_DIR: xxx
+DOC_UPLOAD_DIR: uploads
 
 DB: xxx
