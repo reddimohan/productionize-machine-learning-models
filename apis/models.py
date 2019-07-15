@@ -1,22 +1,18 @@
 import os
 import yaml
 
-# Load your Machine learning libraries here ex: Keras or Tensorflow ... etc
 import tensorflow as tf
+from keras.models import load_model
 
 
 def init():
     """
     create global variables, so that you can load this variable inside api/module file
     """
-    global model_data
+    global classifier
     global graph
 
-    # Load models here into global variables once, so that we dont have to load them again
-    model_data = "Load model here"
+    # One time Model Loading to global variable, so that we dont have to load them again
+    classifier = load_model('models/cat_dog_clf_model.h5')
 
     graph = tf.get_default_graph()
-
-
-def _get_cwd():
-    return os.getcwd()

@@ -1,9 +1,9 @@
 from flask_restplus import Api
 
-from .module_name import api as ns1
+from .classifier import api as ns1
 
 api = Api(
-    title='API Title',
+    title='',
     version='1.0',
     description='API description',
 )

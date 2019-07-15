@@ -25,16 +25,24 @@ $ conda create --name <proj_name35> python=3.5
 $ source activate <proj_name35>
 ```
 
+##### Model
+Sample model (the model I used for this tutorial) can be download from the below link. Script that I used to train the model is https://github.com/reddimohan/Custom-image-classification-using-Inception-v3
+```sh
+Model link: https://1drv.ms/u/s!ArDo8DV9hhHCgTL-SFawrYAmU_DT?e=1TZYw6
+```
+
 ##### Install libraries
 
 ```sh
 $ pip install -r requirements.txt
 ```
+
 ##### Run the REST api in local with debug level
 ```sh
 $ cd productionize-ml-model/
 $ python app_server.py --debug
 ```
+
 ##### Run API in production mode
 ```sh
 $ gunicorn --bind 0.0.0.0:5000 wsgi:application -w 1
