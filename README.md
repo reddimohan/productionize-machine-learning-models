@@ -1,4 +1,9 @@
 # Flask template to productionize Machine learning models
+
+#### Screenshot
+![Imgur](https://i.imgur.com/noJ5HDL.png)
+
+
 #### Required python version
 ```sh
 $ python --version
